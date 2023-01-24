@@ -5,13 +5,14 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "./SsacToken.sol";
 
-contract SsacCommunityV1 is Initializable, Ownable {
-    address public SSACToken;
+contract SsacCommunityV1 is Initializable {
+    SSACTOKEN private ssacToken;
     address[] public members;
-    uint256 currentEntryId = 1;
-    uint256 currentContestId = 1;
-    uint256 votingCost = 1 * (10 ** 18);
+    address public owner;
+    uint256 currentContestId;
+    uint256 votingCost;
 
     // Entry Struct that represnts an entry to a contest
     struct Entry {
@@ -31,13 +32,21 @@ contract SsacCommunityV1 is Initializable, Ownable {
         bool open; // If the contest is still ongoing
     }
 
-    mapping(uint256 => Contest) public contests; // Maps an ID to a particular Contest
+    Contest[] public contests;
+    // mapping(uint256 => Contest) public contests; // Maps an ID to a particular Contest
     mapping(uint256 => mapping(uint256 => Entry)) public entries; // Maps an ID of a contest to the ID of a particular Entry in that Contest
-    mapping(uint256 => Entry[]) public contestEntries; // Stores all the Entries for a particular contestId
+    mapping(uint256 => uint256) public noOfEntries; // Maps a ContestId to the number of entries
     mapping(uint256 => address[]) public contestVoters; // Stores a array of votes for a particular contestId
 
-    function initialize(address _ssacTokenAddress) public initializer {
-        SSACToken = _ssacTokenAddress;
+    function initialize(uint256 _votingCost) public initializer {
+        ssacToken = new SSACTOKEN();
+        currentContestId = currentContestId;
+        votingCost = _votingCost;
+        owner = msg.sender;
+    }
+
+    function mintToken(address _to, uint256 _amount) public onlyOwner {
+        ssacToken.mint(_to, _amount);
     }
 
     function addMember() public {
@@ -50,14 +59,17 @@ contract SsacCommunityV1 is Initializable, Ownable {
         uint256 _registrationFee,
         uint256 _tokenReward
     ) external onlyOwner {
-        contests[currentContestId] = Contest(
-            currentContestId,
-            _name,
-            _registrationFee,
-            _tokenReward,
-            block.timestamp,
-            true
+        contests.push(
+            Contest(
+                currentContestId,
+                _name,
+                _registrationFee,
+                _tokenReward,
+                block.timestamp,
+                true
+            )
         );
+        noOfEntries[currentContestId] = 0;
 
         currentContestId += 1;
     }
@@ -68,12 +80,16 @@ contract SsacCommunityV1 is Initializable, Ownable {
         address _NFT_Address
     ) external payable {
         Contest memory presentContest = getContest(_contestId);
-
-        require(presentContest.open == true, "Contest is over");
+        require(isMember(msg.sender), "Only members can create an Entry");
+        require(isContest(_contestId), "Contest is closed or does not exist"); // To make sure that the contest is open/exists
         require(
             msg.value >= presentContest.registrationFee,
             "Insuficient Registration Fee"
         );
+
+        noOfEntries[currentContestId] += 1;
+
+        uint256 currentEntryId = noOfEntries[currentContestId]; // This gets the ID for the particulat Entry
 
         entries[_contestId][currentEntryId] = Entry(
             currentEntryId,
@@ -82,22 +98,35 @@ contract SsacCommunityV1 is Initializable, Ownable {
             _NFT_Address,
             0
         );
-
-        currentEntryId += 1;
     }
 
     function vote(uint256 _contestId, uint256 _entryId) external {
         require(
-            IERC20(SSACToken).balanceOf(msg.sender) > votingCost,
+            isContest(_contestId) == true,
+            "Contest doesn't exist or is over"
+        ); // To make sure that the contest is open/exists
+        require(isEntry(_contestId, _entryId) == true, "Entry doesn't exist"); // To make sure that the entry exists
+        require(isMember(msg.sender), "Only members can vote");
+        require(
+            ssacToken.balanceOf(msg.sender) > votingCost,
             "Insufficient Token amount"
         ); // 1 Token is needed to Vote
         require(
             hasVoted(_contestId, msg.sender) == false,
             "Address has already Voted"
         );
-        ERC20Burnable(SSACToken).burn(votingCost);
-        Entry memory _entry = getEntry(_contestId, _entryId);
-        _entry.noOfVotes += 1;
+        ssacToken.burnFrom(msg.sender, votingCost); // Works
+        contestVoters[_contestId].push(msg.sender);
+
+        entries[_contestId][_entryId].noOfVotes += 1;
+    }
+
+    function getEntry(
+        uint256 _contestId,
+        uint256 _entryId
+    ) public view returns (Entry memory) {
+        require(isEntry(_contestId, _entryId) == true, "entry not found");
+        return entries[_contestId][_entryId];
     }
 
     function getNoOfVotes(
@@ -107,13 +136,6 @@ contract SsacCommunityV1 is Initializable, Ownable {
         Entry memory _entry = getEntry(_contestId, _entryId);
 
         return _entry.noOfVotes;
-    }
-
-    function getEntry(
-        uint256 _contestId,
-        uint256 _entryId
-    ) public view returns (Entry memory) {
-        return entries[_contestId][_entryId];
     }
 
     function getContest(
@@ -139,6 +161,34 @@ contract SsacCommunityV1 is Initializable, Ownable {
             if (contestVoters[_contestId][i] == _addr) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    function getTokenAddress() public view returns (address) {
+        return address(ssacToken);
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+
+        _;
+    }
+
+    function isContest(uint256 _contestId) public view returns (bool) {
+        if (contests[_contestId].open == true) {
+            return true;
+        }
+        return false;
+    }
+
+    function isEntry(
+        uint256 _contestId,
+        uint256 _entryId
+    ) public view returns (bool) {
+        require(isContest(_contestId));
+        if (entries[_contestId][_entryId].entryId > 0) {
+            return true;
         }
         return false;
     }

@@ -1,0 +1,257 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "txHash": "0xf8045f0595ea574c879b4fa3b2397d8096d845e1f3f68afdcf410e88c19ccb17"
+  },
+  "proxies": [
+    {
+      "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      "txHash": "0x3c2fc17a016d53b072080903f4284bee5bf718fad5e91de837dd36dd269467a7",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "txHash": "0x3a31e2971f4e9af44b9a2a2d232f3e922ff98daa6a66face9eeac20035ab9480",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      "txHash": "0xe1ddf1d70033c52791f363934caa53d4f38f55daeeb5fd1fef490af11f75819f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "txHash": "0x554a0359d8d4c9f0fa7206ea2e43e559af0b8cd71f0b81d531dd37c498001fc6",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "7297ff25b5f7d4916ccf5c47598d7f3b3ce8a18b44bbdf15ad32b70a62832be3": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "txHash": "0x71dbc463ddc8ade6a376fad1ae891e1342519a5480bf0c011ccf0fa8f669e0af",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "ssacToken",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(SSACTOKEN)2020",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:11"
+          },
+          {
+            "label": "members",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:12"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:13"
+          },
+          {
+            "label": "currentContestId",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:14"
+          },
+          {
+            "label": "votingCost",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:15"
+          },
+          {
+            "label": "contests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Contest)1494_storage)dyn_storage",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:35"
+          },
+          {
+            "label": "entries",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:37"
+          },
+          {
+            "label": "noOfEntries",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:38"
+          },
+          {
+            "label": "contestVoters",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
+            "contract": "SsacCommunityV1",
+            "src": "contracts/SsacCommunityV1.sol:39"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Contest)1494_storage)dyn_storage": {
+            "label": "struct SsacCommunityV1.Contest[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(SSACTOKEN)2020": {
+            "label": "contract SSACTOKEN",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+            "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV1.Entry))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+            "label": "mapping(uint256 => struct SsacCommunityV1.Entry)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Contest)1494_storage": {
+            "label": "struct SsacCommunityV1.Contest",
+            "members": [
+              {
+                "label": "contestId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "contestName",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "registrationFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenReward",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "open",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(Entry)1481_storage": {
+            "label": "struct SsacCommunityV1.Entry",
+            "members": [
+              {
+                "label": "entryId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "entryTitle",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "entrantAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "NFT_Address",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "noOfVotes",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}
