@@ -1,5 +1,5 @@
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
-const { expect, use } = require("chai");
+const { expect } = require("chai");
 const { ethers } = require("hardhat");
 require("dotenv").config();
 

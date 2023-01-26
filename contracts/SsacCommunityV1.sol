@@ -27,7 +27,8 @@ contract SsacCommunityV1 is Initializable {
         uint256 contestId;
         string contestName;
         uint256 registrationFee; // Fee will be in ETH
-        uint256 tokenReward; // Rewards will be partially in ETH and SSAC Token
+        uint256 tokenReward; // Reward in SSAC Token...Rewards will be in both ETH and SSAC
+        uint256 prizePool; // From all fees collected from registration
         uint256 startDate;
         bool open; // If the contest is still ongoing
     }
@@ -35,7 +36,7 @@ contract SsacCommunityV1 is Initializable {
     Contest[] public contests;
     // mapping(uint256 => Contest) public contests; // Maps an ID to a particular Contest
     mapping(uint256 => mapping(uint256 => Entry)) public entries; // Maps an ID of a contest to the ID of a particular Entry in that Contest
-    mapping(uint256 => uint256) public noOfEntries; // Maps a ContestId to the number of entries
+    mapping(uint256 => uint256) public entriesCount; // Maps a ContestId to the number of entries
     mapping(uint256 => address[]) public contestVoters; // Stores a array of votes for a particular contestId
 
     function initialize(uint256 _votingCost) public initializer {
@@ -65,11 +66,12 @@ contract SsacCommunityV1 is Initializable {
                 _name,
                 _registrationFee,
                 _tokenReward,
+                0, // Price pool is initialized to 0...
                 block.timestamp,
                 true
             )
         );
-        noOfEntries[currentContestId] = 0;
+        entriesCount[currentContestId] = 0;
 
         currentContestId += 1;
     }
@@ -87,9 +89,12 @@ contract SsacCommunityV1 is Initializable {
             "Insuficient Registration Fee"
         );
 
-        noOfEntries[currentContestId] += 1;
+        entriesCount[_contestId] += 1;
+        contests[_contestId].prizePool += msg.value; // Increasing the Price Pool by the registration fee sent
 
-        uint256 currentEntryId = noOfEntries[currentContestId]; // This gets the ID for the particulat Entry
+        /* Better to update values on structs straight from the mapping than use Constant vairables...these dont update the original struct object */
+
+        uint256 currentEntryId = entriesCount[_contestId]; // This gets the ID for the particular Entry
 
         entries[_contestId][currentEntryId] = Entry(
             currentEntryId,
@@ -115,11 +120,38 @@ contract SsacCommunityV1 is Initializable {
             hasVoted(_contestId, msg.sender) == false,
             "Address has already Voted"
         );
-        ssacToken.burnFrom(msg.sender, votingCost); // Works
+        ssacToken.burnFrom(msg.sender, votingCost); // Burns the SSAC token after the user has voted
         contestVoters[_contestId].push(msg.sender);
 
         entries[_contestId][_entryId].noOfVotes += 1;
     }
+
+    // This function should be called automatically from a Chainlink VRF Contract
+    function endContest(uint256 _contestId) external onlyOwner {
+        require(
+            isContest(_contestId) == true,
+            "Contest doesn't exist or is over"
+        ); // To make sure that the contest is open/exists
+
+        Contest memory currentContest = getContest(_contestId);
+        uint256 winningEntryId = getEntryWithHighestVote(_contestId);
+        Entry memory winnerEntry = getEntry(_contestId, winningEntryId);
+        uint256 tokenReward = currentContest.tokenReward;
+        uint256 contestPrizePool = currentContest.prizePool;
+        address winnerAddress = winnerEntry.entrantAddress;
+
+        // Give winner 100% of price pool (Normally Price pool is shared between top 3 or 5)
+        (bool sent, ) = winnerAddress.call{value: contestPrizePool}("");
+        require(sent, "Failed to send Reward");
+
+        // Send Winner Token Reward
+        ssacToken.mint(winnerAddress, tokenReward);
+
+        // Close Contest to prevent more voting/entrants
+        contests[_contestId].open = false;
+    }
+
+    // GETTERS
 
     function getEntry(
         uint256 _contestId,
@@ -170,7 +202,7 @@ contract SsacCommunityV1 is Initializable {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Only owner can call this function");
 
         _;
     }
@@ -191,5 +223,30 @@ contract SsacCommunityV1 is Initializable {
             return true;
         }
         return false;
+    }
+
+    function getContestPrizePool(
+        uint256 _contestId
+    ) public view returns (uint256) {
+        Contest memory contest = getContest(_contestId);
+        return contest.prizePool;
+    }
+
+    function getEntryWithHighestVote(
+        uint256 _contestId
+    ) public view returns (uint256) {
+        uint256 noOfEntries = entriesCount[_contestId];
+        uint256 highestVote;
+        uint256 entryWithHigestVoteID;
+        for (uint i = 1; i < noOfEntries + 1; i++) {
+            if (entries[_contestId][i].noOfVotes > highestVote) {
+                highestVote = entries[_contestId][i].noOfVotes;
+                entryWithHigestVoteID = entries[_contestId][i].entryId;
+            } else {
+                continue;
+            }
+        }
+
+        return entryWithHigestVoteID; // Retunrs the ID of the entry with the Higest vote
     }
 }

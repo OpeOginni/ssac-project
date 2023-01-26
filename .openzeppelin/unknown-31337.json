@@ -2,7 +2,7 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0xf8045f0595ea574c879b4fa3b2397d8096d845e1f3f68afdcf410e88c19ccb17"
+    "txHash": "0x860f295ca45bd8b8c4071318f0ad283ba85d3b82f28f8c4b76ee59a2c6e250cc"
   },
   "proxies": [
     {
@@ -22,14 +22,14 @@
     },
     {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0x554a0359d8d4c9f0fa7206ea2e43e559af0b8cd71f0b81d531dd37c498001fc6",
+      "txHash": "0x962d046cb2f15a2f6acd1740891b3796e438466b7f927e45515cb6562fe11cc9",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "7297ff25b5f7d4916ccf5c47598d7f3b3ce8a18b44bbdf15ad32b70a62832be3": {
+    "936dcbb0d85eefa564adc0a1c174e2d6f0ccbcb207b89aaa010d851eb5205072": {
       "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0x71dbc463ddc8ade6a376fad1ae891e1342519a5480bf0c011ccf0fa8f669e0af",
+      "txHash": "0x288f27a790aed89931deb54ed717acd22db864437f5078b67cf5bfd5a473599c",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -54,7 +54,7 @@
             "label": "ssacToken",
             "offset": 2,
             "slot": "0",
-            "type": "t_contract(SSACTOKEN)2020",
+            "type": "t_contract(SSACTOKEN)2197",
             "contract": "SsacCommunityV1",
             "src": "contracts/SsacCommunityV1.sol:11"
           },
@@ -94,9 +94,9 @@
             "label": "contests",
             "offset": 0,
             "slot": "5",
-            "type": "t_array(t_struct(Contest)1494_storage)dyn_storage",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
             "contract": "SsacCommunityV1",
-            "src": "contracts/SsacCommunityV1.sol:35"
+            "src": "contracts/SsacCommunityV1.sol:36"
           },
           {
             "label": "entries",
@@ -104,15 +104,15 @@
             "slot": "6",
             "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
             "contract": "SsacCommunityV1",
-            "src": "contracts/SsacCommunityV1.sol:37"
+            "src": "contracts/SsacCommunityV1.sol:38"
           },
           {
-            "label": "noOfEntries",
+            "label": "entriesCount",
             "offset": 0,
             "slot": "7",
             "type": "t_mapping(t_uint256,t_uint256)",
             "contract": "SsacCommunityV1",
-            "src": "contracts/SsacCommunityV1.sol:38"
+            "src": "contracts/SsacCommunityV1.sol:39"
           },
           {
             "label": "contestVoters",
@@ -120,7 +120,7 @@
             "slot": "8",
             "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
             "contract": "SsacCommunityV1",
-            "src": "contracts/SsacCommunityV1.sol:39"
+            "src": "contracts/SsacCommunityV1.sol:40"
           }
         ],
         "types": {
@@ -132,7 +132,7 @@
             "label": "address[]",
             "numberOfBytes": "32"
           },
-          "t_array(t_struct(Contest)1494_storage)dyn_storage": {
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
             "label": "struct SsacCommunityV1.Contest[]",
             "numberOfBytes": "32"
           },
@@ -140,7 +140,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(SSACTOKEN)2020": {
+          "t_contract(SSACTOKEN)2197": {
             "label": "contract SSACTOKEN",
             "numberOfBytes": "20"
           },
@@ -164,7 +164,7 @@
             "label": "string",
             "numberOfBytes": "32"
           },
-          "t_struct(Contest)1494_storage": {
+          "t_struct(Contest)1496_storage": {
             "label": "struct SsacCommunityV1.Contest",
             "members": [
               {
@@ -192,19 +192,25 @@
                 "slot": "3"
               },
               {
-                "label": "startDate",
+                "label": "prizePool",
                 "type": "t_uint256",
                 "offset": 0,
                 "slot": "4"
               },
               {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
                 "label": "open",
                 "type": "t_bool",
                 "offset": 0,
-                "slot": "5"
+                "slot": "6"
               }
             ],
-            "numberOfBytes": "192"
+            "numberOfBytes": "224"
           },
           "t_struct(Entry)1481_storage": {
             "label": "struct SsacCommunityV1.Entry",
