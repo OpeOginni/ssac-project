@@ -2,7 +2,7 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0x860f295ca45bd8b8c4071318f0ad283ba85d3b82f28f8c4b76ee59a2c6e250cc"
+    "txHash": "0xb6589595d91ea4422bc8f687e0d6eea8dc5120f54e4a3997ab537931f4136ed0"
   },
   "proxies": [
     {
@@ -22,14 +22,14 @@
     },
     {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0x962d046cb2f15a2f6acd1740891b3796e438466b7f927e45515cb6562fe11cc9",
+      "txHash": "0x2e8e9ea60d29bb2f575fa1aefd52da4e8768031c4e7808d41875043fa67e73f5",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "936dcbb0d85eefa564adc0a1c174e2d6f0ccbcb207b89aaa010d851eb5205072": {
+    "40b403a46378a52914d9394719ee754134fbdef6e529166bbdc1bb82f2444be9": {
       "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0x288f27a790aed89931deb54ed717acd22db864437f5078b67cf5bfd5a473599c",
+      "txHash": "0x5733c175a567c82fa9c6551765e51d0d8c4f94d165e99796aeef2430851eb4d0",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -54,7 +54,7 @@
             "label": "ssacToken",
             "offset": 2,
             "slot": "0",
-            "type": "t_contract(SSACTOKEN)2197",
+            "type": "t_contract(SSACTOKEN)2190",
             "contract": "SsacCommunityV1",
             "src": "contracts/SsacCommunityV1.sol:11"
           },
@@ -140,7 +140,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(SSACTOKEN)2197": {
+          "t_contract(SSACTOKEN)2190": {
             "label": "contract SSACTOKEN",
             "numberOfBytes": "20"
           },

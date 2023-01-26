@@ -208,10 +208,7 @@ contract SsacCommunityV1 is Initializable {
     }
 
     function isContest(uint256 _contestId) public view returns (bool) {
-        if (contests[_contestId].open == true) {
-            return true;
-        }
-        return false;
+        return contests[_contestId].open;
     }
 
     function isEntry(

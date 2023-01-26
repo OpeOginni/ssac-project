@@ -45,11 +45,6 @@ describe("SsacCommunityV1", function () {
 
     console.log("Deployed SSAC Token address: " + ssacToken.address);
 
-    console.log("Addresses");
-    console.log("Signer address: ", owner.address);
-    console.log("User1 address: ", user1.address);
-    console.log("Contestant address: ", contestant1.address);
-
     console.log("####################################");
     console.log("Contract Owner address: ", await proxy.owner());
 
