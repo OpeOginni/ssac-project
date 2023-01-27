@@ -88,7 +88,6 @@ contract SsacCommunityV1 is Initializable {
             msg.value >= presentContest.registrationFee,
             "Insuficient Registration Fee"
         );
-        // require(IERC721(_NFT_Address).ownerOf(tokenId);)
 
         entriesCount[_contestId] += 1;
         contests[_contestId].prizePool += msg.value; // Increasing the Price Pool by the registration fee sent
@@ -147,6 +146,8 @@ contract SsacCommunityV1 is Initializable {
 
         // Send Winner Token Reward
         ssacToken.mint(winnerAddress, tokenReward);
+
+        // ERC7
 
         // Close Contest to prevent more voting/entrants
         contests[_contestId].open = false;
