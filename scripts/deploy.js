@@ -1,5 +1,11 @@
 const { Contract } = require("ethers");
 const { ethers, upgrades } = require("hardhat");
+const { verify } = require("../utils/verify");
+require("dotenv").config();
+
+const alchemyProvider = new ethers.providers.JsonRpcProvider(
+  process.env.ALCHEMY_GOERLI_URL
+);
 
 async function main() {
   let voteFee = ethers.utils.parseUnits("1", "ether");
@@ -17,7 +23,7 @@ async function main() {
   const ssacToken = new Contract(
     deployedTokenAddress,
     SSACTOKEN.interface,
-    owner
+    alchemyProvider
   );
 
   const implementationAddress = await upgrades.erc1967.getImplementationAddress(
@@ -28,7 +34,10 @@ async function main() {
 
   console.log("Implementation contract address: " + implementationAddress);
 
-  console.log("Deployed SSAC Token address: " + ssacToken.address);
+  console.log("Proxy Deployed SSAC Token address: " + ssacToken.address);
+
+  await verify(implementationAddress);
+  // Implementation verified
 }
 
 main();

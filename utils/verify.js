@@ -1,9 +1,13 @@
 require("@nomiclabs/hardhat-etherscan");
 
-async function verify() {
+const verify = async (implementationAddress) => {
   await hre.run("verify:verify", {
-    // address:  // Put in the address of your deployed contract...Not proxy
+    address: implementationAddress, // Put in the address of your deployed contract...Not proxy
   });
-}
+};
 
-verify();
+module.exports = { verify };
+
+// npx hardhat verify --network goerli <implementationAddress>
+
+// If error clear aritfacts and cache
