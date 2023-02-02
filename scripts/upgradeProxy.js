@@ -11,7 +11,9 @@ async function main() {
     proxyAddress
   );
 
-  console.log("The current contract owner is: " + (await upgraded.owner()));
+  console.log(
+    "The current contract owner address is: " + (await upgraded.owner())
+  );
   console.log("Implementation contract address: " + implementationAddress);
 }
 
