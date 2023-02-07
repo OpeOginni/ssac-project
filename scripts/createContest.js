@@ -11,10 +11,10 @@ const wallet = new ethers.Wallet(
 const deployedProxyAddress = "0x44a31563F1Eb2389f2d59C6CFE23FF0344a6B519";
 
 async function main(contestTitle, registrationFee, tokenReward) {
-  const SsacCommunityV1 = await ethers.getContractFactory("SsacCommunityV1");
+  const SsacCommunityV2 = await ethers.getContractFactory("SsacCommunityV2");
   const proxyContract = new ethers.Contract(
     deployedProxyAddress,
-    SsacCommunityV1.interface,
+    SsacCommunityV2.interface,
     wallet
   );
 
@@ -22,9 +22,9 @@ async function main(contestTitle, registrationFee, tokenReward) {
   console.log("Contest Created");
 }
 
-const regFee = ethers.utils.parseUnits("0.1", "ether");
-const _tokenReward = ethers.utils.parseUnits("10", "ether");
+const regFee = ethers.utils.parseUnits("0.01", "ether");
+const _tokenReward = ethers.utils.parseUnits("25", "ether");
 
-main("My First Test Contest", regFee, _tokenReward);
+main("The Best Contest", regFee, _tokenReward);
 
 // Script: npx hardhat run scripts/createContest.js

@@ -39,7 +39,7 @@
             "label": "ssacToken",
             "offset": 2,
             "slot": "0",
-            "type": "t_contract(SSACTOKEN)5262",
+            "type": "t_contract(SSACTOKEN)2190",
             "contract": "SsacCommunityV1",
             "src": "contracts/SsacCommunityV1.sol:11"
           },
@@ -79,7 +79,7 @@
             "label": "contests",
             "offset": 0,
             "slot": "5",
-            "type": "t_array(t_struct(Contest)3880_storage)dyn_storage",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
             "contract": "SsacCommunityV1",
             "src": "contracts/SsacCommunityV1.sol:36"
           },
@@ -87,7 +87,7 @@
             "label": "entries",
             "offset": 0,
             "slot": "6",
-            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)3865_storage))",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
             "contract": "SsacCommunityV1",
             "src": "contracts/SsacCommunityV1.sol:38"
           },
@@ -117,7 +117,7 @@
             "label": "address[]",
             "numberOfBytes": "32"
           },
-          "t_array(t_struct(Contest)3880_storage)dyn_storage": {
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
             "label": "struct SsacCommunityV1.Contest[]",
             "numberOfBytes": "32"
           },
@@ -125,7 +125,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(SSACTOKEN)5262": {
+          "t_contract(SSACTOKEN)2190": {
             "label": "contract SSACTOKEN",
             "numberOfBytes": "20"
           },
@@ -133,11 +133,11 @@
             "label": "mapping(uint256 => address[])",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)3865_storage))": {
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
             "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV1.Entry))",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(Entry)3865_storage)": {
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
             "label": "mapping(uint256 => struct SsacCommunityV1.Entry)",
             "numberOfBytes": "32"
           },
@@ -149,7 +149,7 @@
             "label": "string",
             "numberOfBytes": "32"
           },
-          "t_struct(Contest)3880_storage": {
+          "t_struct(Contest)1496_storage": {
             "label": "struct SsacCommunityV1.Contest",
             "members": [
               {
@@ -197,8 +197,1208 @@
             ],
             "numberOfBytes": "224"
           },
-          "t_struct(Entry)3865_storage": {
+          "t_struct(Entry)1481_storage": {
             "label": "struct SsacCommunityV1.Entry",
+            "members": [
+              {
+                "label": "entryId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "entryTitle",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "entrantAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "NFT_Address",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "noOfVotes",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "19ed7e8de2a9a51f274d76dd03a2521cceee0f6b196eaae7c7f86b9aa68e7e83": {
+      "address": "0x558a5b92acfBb80e84E011f646A6D5C29707872d",
+      "txHash": "0xa12e8a77d23307523aed870ad8c8767b09f6b8a64773aa64a13fe1cc1886cb3a",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "ssacToken",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(SSACTOKEN)2214",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:11"
+          },
+          {
+            "label": "members",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:12"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:13"
+          },
+          {
+            "label": "currentContestId",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:14"
+          },
+          {
+            "label": "votingCost",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:15"
+          },
+          {
+            "label": "contests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:36"
+          },
+          {
+            "label": "entries",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:38"
+          },
+          {
+            "label": "entriesCount",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:39"
+          },
+          {
+            "label": "contestVoters",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:40"
+          },
+          {
+            "label": "contestWinner",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:41"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
+            "label": "struct SsacCommunityV2.Contest[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(SSACTOKEN)2214": {
+            "label": "contract SSACTOKEN",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+            "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV2.Entry))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+            "label": "mapping(uint256 => struct SsacCommunityV2.Entry)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Contest)1496_storage": {
+            "label": "struct SsacCommunityV2.Contest",
+            "members": [
+              {
+                "label": "contestId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "contestName",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "registrationFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenReward",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "prizePool",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "open",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_struct(Entry)1481_storage": {
+            "label": "struct SsacCommunityV2.Entry",
+            "members": [
+              {
+                "label": "entryId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "entryTitle",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "entrantAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "NFT_Address",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "noOfVotes",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "28b36da8c851d741248962cbccd7a74d64621b0ecf42fd576f016b40824e854b": {
+      "address": "0x618cdbD10F8558673Bd36a509E097cC5Ef7540E9",
+      "txHash": "0xaa63728b36a4b443f01ba2c6cef24a21f8f23e932cf1f6ef5ff9aa59a62e3b21",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "ssacToken",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(SSACTOKEN)2221",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:11"
+          },
+          {
+            "label": "members",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:12"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:13"
+          },
+          {
+            "label": "currentContestId",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:14"
+          },
+          {
+            "label": "votingCost",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:15"
+          },
+          {
+            "label": "contests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:36"
+          },
+          {
+            "label": "entries",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:38"
+          },
+          {
+            "label": "entriesCount",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:39"
+          },
+          {
+            "label": "contestVoters",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:40"
+          },
+          {
+            "label": "contestWinner",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:41"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
+            "label": "struct SsacCommunityV2.Contest[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(SSACTOKEN)2221": {
+            "label": "contract SSACTOKEN",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+            "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV2.Entry))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+            "label": "mapping(uint256 => struct SsacCommunityV2.Entry)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Contest)1496_storage": {
+            "label": "struct SsacCommunityV2.Contest",
+            "members": [
+              {
+                "label": "contestId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "contestName",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "registrationFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenReward",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "prizePool",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "open",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_struct(Entry)1481_storage": {
+            "label": "struct SsacCommunityV2.Entry",
+            "members": [
+              {
+                "label": "entryId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "entryTitle",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "entrantAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "NFT_Address",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "noOfVotes",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "4f6ac23e4f4698b60bd229b31c139155577728ff576b7f806e46e1d79b74e068": {
+      "address": "0x284bEda989C9C5cB2B724f83A340F543cEa6fdA9",
+      "txHash": "0x01116614b5abf0aa87a85c88cc4b72589e754d4596b312285e81b46990b4d742",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "ssacToken",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(SSACTOKEN)2231",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:11"
+          },
+          {
+            "label": "members",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:12"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:13"
+          },
+          {
+            "label": "currentContestId",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:14"
+          },
+          {
+            "label": "votingCost",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:15"
+          },
+          {
+            "label": "contests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:36"
+          },
+          {
+            "label": "entries",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:38"
+          },
+          {
+            "label": "entriesCount",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:39"
+          },
+          {
+            "label": "contestVoters",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:40"
+          },
+          {
+            "label": "contestWinner",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:41"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
+            "label": "struct SsacCommunityV2.Contest[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(SSACTOKEN)2231": {
+            "label": "contract SSACTOKEN",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+            "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV2.Entry))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+            "label": "mapping(uint256 => struct SsacCommunityV2.Entry)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Contest)1496_storage": {
+            "label": "struct SsacCommunityV2.Contest",
+            "members": [
+              {
+                "label": "contestId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "contestName",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "registrationFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenReward",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "prizePool",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "open",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_struct(Entry)1481_storage": {
+            "label": "struct SsacCommunityV2.Entry",
+            "members": [
+              {
+                "label": "entryId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "entryTitle",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "entrantAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "NFT_Address",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "noOfVotes",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "1b542a39ee92a0f5d68a9455fa8f981b12ca0a768d081840dd2cbc226940e2f3": {
+      "address": "0x2479D29F3Cc5EfEE2d11BF3B7F96a163C621c678",
+      "txHash": "0x23262d23f5dd0549d2d7cdd1af6b774958e3daa65ae059e376868a2fdb23413c",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "ssacToken",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(SSACTOKEN)2223",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:11"
+          },
+          {
+            "label": "members",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:12"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:13"
+          },
+          {
+            "label": "currentContestId",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:14"
+          },
+          {
+            "label": "votingCost",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:15"
+          },
+          {
+            "label": "contests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:36"
+          },
+          {
+            "label": "entries",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:38"
+          },
+          {
+            "label": "entriesCount",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:39"
+          },
+          {
+            "label": "contestVoters",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:40"
+          },
+          {
+            "label": "contestWinner",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:41"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
+            "label": "struct SsacCommunityV2.Contest[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(SSACTOKEN)2223": {
+            "label": "contract SSACTOKEN",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+            "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV2.Entry))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+            "label": "mapping(uint256 => struct SsacCommunityV2.Entry)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Contest)1496_storage": {
+            "label": "struct SsacCommunityV2.Contest",
+            "members": [
+              {
+                "label": "contestId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "contestName",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "registrationFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenReward",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "prizePool",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "open",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_struct(Entry)1481_storage": {
+            "label": "struct SsacCommunityV2.Entry",
+            "members": [
+              {
+                "label": "entryId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "entryTitle",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "entrantAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "NFT_Address",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "noOfVotes",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "2e748c3d091a1955c3302feb943a05171837814855cada92e54db25634671722": {
+      "address": "0x3561eA0e38d03602b2ce83770D2a5B28E2C919bc",
+      "txHash": "0xf6196ddfb768ce7c332507db79195580e792d6e93112887acc5ac94c5a2c3367",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "ssacToken",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(SSACTOKEN)2223",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:11"
+          },
+          {
+            "label": "members",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:12"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:13"
+          },
+          {
+            "label": "currentContestId",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:14"
+          },
+          {
+            "label": "votingCost",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:15"
+          },
+          {
+            "label": "contests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:36"
+          },
+          {
+            "label": "entries",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:38"
+          },
+          {
+            "label": "entriesCount",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:39"
+          },
+          {
+            "label": "contestVoters",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:40"
+          },
+          {
+            "label": "contestWinner",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "SsacCommunityV2",
+            "src": "contracts/SsacCommunityV2.sol:41"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
+            "label": "struct SsacCommunityV2.Contest[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(SSACTOKEN)2223": {
+            "label": "contract SSACTOKEN",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+            "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV2.Entry))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+            "label": "mapping(uint256 => struct SsacCommunityV2.Entry)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Contest)1496_storage": {
+            "label": "struct SsacCommunityV2.Contest",
+            "members": [
+              {
+                "label": "contestId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "contestName",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "registrationFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenReward",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "prizePool",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "startDate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "open",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_struct(Entry)1481_storage": {
+            "label": "struct SsacCommunityV2.Entry",
             "members": [
               {
                 "label": "entryId",

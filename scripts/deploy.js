@@ -36,7 +36,7 @@ async function main() {
 
   console.log("Proxy Deployed SSAC Token address: " + ssacToken.address);
 
-  await verify(implementationAddress);
+  // await verify(implementationAddress);
   // Implementation verified
 }
 

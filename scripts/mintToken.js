@@ -1,8 +1,6 @@
 const { ethers } = require("hardhat");
 require("dotenv").config();
 
-const CONTEST_ID = 1;
-
 const alchemyProvider = new ethers.providers.JsonRpcProvider(
   process.env.ALCHEMY_GOERLI_URL
 );
@@ -12,7 +10,11 @@ const wallet = new ethers.Wallet(
 );
 const deployedProxyAddress = "0x44a31563F1Eb2389f2d59C6CFE23FF0344a6B519";
 
-async function main(contestId) {
+const addressToMintTo = "0x798dAf26493A3bc4bD3ca862E4a65b2f63062D6f";
+
+const mintAmount = ethers.utils.parseUnits("1", "ether");
+
+async function main(_wallet) {
   const SsacCommunityV2 = await ethers.getContractFactory("SsacCommunityV2");
   const proxyContract = new ethers.Contract(
     deployedProxyAddress,
@@ -20,10 +22,8 @@ async function main(contestId) {
     wallet
   );
 
-  await proxyContract.endContest(contestId);
-  console.log("Contest Over...Winner Rewarded");
+  await proxyContract.mintToken(addressToMintTo, mintAmount);
+  console.log("TOKEN MINTED");
 }
 
-main(CONTEST_ID);
-
-// npx hardhat run scripts/endContest.js --network goerli
+main(wallet);
