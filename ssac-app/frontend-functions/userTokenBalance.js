@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import SsacToken from "../artifacts/contracts/SsacToken.sol/SsacToken";
+import SsacToken from "../../artifacts/contracts/SsacCommunityV2.sol/SsacCommunityV2";
 
 const alchemyProvider = new ethers.providers.JsonRpcProvider(
   "https://eth-goerli.g.alchemy.com/v2/QqSZFIahqZ-ZKKwyQhjNXg2HCzQfw8-B"

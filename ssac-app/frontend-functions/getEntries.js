@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import SsacCommunityV2 from "../artifacts/contracts/SsacCommunityV2.sol/SsacCommunityV2";
+import SsacCommunityV2 from "../../artifacts/contracts/SsacCommunityV2.sol/SsacCommunityV2";
 
 // const ethers = require("ethers");
 // const SsacCommunityV2 = require("../artifacts/contracts/SsacCommunityV2.sol/SsacCommunityV2");

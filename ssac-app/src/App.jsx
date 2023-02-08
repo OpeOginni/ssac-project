@@ -24,15 +24,15 @@ import {
 import { ArrowBackIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import React, { useState, useEffect } from "react";
 import { ethers, BigNumber } from "ethers";
-import { getContests } from "../../frontend-functions/getContests";
-import { getEntries } from "../../frontend-functions/getEntries";
-import { getWinner } from "../../frontend-functions/getContestWinner";
-import { enterContest } from "../../frontend-functions/enterContest";
-import { isMember } from "../../frontend-functions/isMember";
-import { becomeMember } from "../../frontend-functions/becomeMember";
-import { voteEntry } from "../../frontend-functions/voteEntry";
-import { userHasVoted } from "../../frontend-functions/hasVoted";
-import { userTokenBalance } from "../../frontend-functions/userTokenBalance";
+import { getContests } from "../frontend-functions/getContests";
+import { getEntries } from "../frontend-functions/getEntries";
+import { getWinner } from "../frontend-functions/getContestWinner";
+import { enterContest } from "../frontend-functions/enterContest";
+import { isMember } from "../frontend-functions/isMember";
+import { becomeMember } from "../frontend-functions/becomeMember";
+import { voteEntry } from "../frontend-functions/voteEntry";
+import { userHasVoted } from "../frontend-functions/hasVoted";
+import { userTokenBalance } from "../frontend-functions/userTokenBalance";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
