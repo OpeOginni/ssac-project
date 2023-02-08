@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 require("dotenv").config();
 
-const CONTEST_ID = 1;
+const CONTEST_ID = 2;
 
 const alchemyProvider = new ethers.providers.JsonRpcProvider(
   process.env.ALCHEMY_GOERLI_URL

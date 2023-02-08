@@ -448,7 +448,7 @@ const App = () => {
                         </Text>
                         <Text margin="4">
                           <Link
-                            href={`https://testnets.opensea.io/assets?search[query]=${entry.NFT_Address}`}
+                            href={`https://testnets.opensea.io/assets/goerli/${entry.NFT_Address}/0`}
                             isExternal
                           >
                             Check out NFT
