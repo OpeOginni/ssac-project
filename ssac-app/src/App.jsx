@@ -342,7 +342,11 @@ const App = () => {
                   <Heading textAlign={"center"} margin="12">
                     Entries for "{selectedContest.contestName}"
                   </Heading>
-                  <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                  <SimpleGrid
+                    columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+                    // templateColumns="repeat(3, 1fr)"
+                    gap={6}
+                  >
                     {entries.map((entry) => (
                       <Box
                         key={BigNumber.from(entry.entryId).toNumber()}
@@ -388,7 +392,7 @@ const App = () => {
                         </Button>
                       </Box>
                     ))}
-                  </Grid>
+                  </SimpleGrid>
                   <Button
                     leftIcon={<ArrowBackIcon />}
                     onClick={() => setSelectedContest(null)}
@@ -489,7 +493,11 @@ const App = () => {
                 <Heading textAlign={"center"} margin="12">
                   Available Contests
                 </Heading>
-                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                <SimpleGrid
+                  columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+                  // templateColumns="repeat(3, 1fr)"
+                  gap={6}
+                >
                   {contests.map((contest) => (
                     <Box
                       key={BigNumber.from(contest.contestId).toNumber()}
@@ -581,7 +589,7 @@ const App = () => {
                       </ButtonGroup>
                     </Box>
                   ))}
-                </Grid>
+                </SimpleGrid>
               </Box>
             )}
           </Box>
