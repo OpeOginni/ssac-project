@@ -4,7 +4,9 @@
   "description": "Secure and Safe Art Contest Smart Contract",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app-install": "cd ssac-app && npm install",
+    "app": "cd ssac-app && npm run dev"
   },
   "author": "Opeyemi Oginni",
   "license": "ISC",

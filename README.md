@@ -2,27 +2,27 @@
 
 The SSAC community is my personal project using all the knowledge and skills I got from the [Alchemy University](https://university.alchemy.com/) Ethereum Dev. Bootcamp.
 
-SSAC is a community that enables artists and art enthusiasts to enter Art Contests (With their NFT's). Winners get rewarded ETH and SSAC token. The winner's NFT gets auctioned in the Community where members can purchase the NFT. The amount the NFT get sold for is shared among the voters. So users get rewarded for their good choice of ART. 
+SSAC is a community that enables artists and art enthusiasts to enter Art Contests (With their NFT's). Winners get rewarded ETH and SSAC token. The winner's NFT gets auctioned in the Community where members can purchase the NFT. The amount the NFT get sold for is shared among the voters. So users get rewarded for their good choice of ART.
 
 ## Installation
 
-Clone the repo to your local code editor and install all dependencies 
+Clone the repo to your local code editor and install all dependencies
+
 ```bash
 npm install
 ```
-Install the dependecies for the react-app 
+
+Install the dependecies for the react-app
+
 ```bash
-cd ssac-app
-npm install
+npm run app-install
 
 ```
-
 
 ## To run on your localhost
 
 ```bash
-cd ssac-app
-npm run dev
+npm run app
 
 ```
 
@@ -47,6 +47,5 @@ npm run dev
 [![Alchmey](https://img.shields.io/badge/Alchemy-blue?style=for-the-badge&logo=Alchemy&logoColor=Blue)](https://www.alchemy.com/)
 
 [![Ethers.JS](https://img.shields.io/badge/Ethers.JS-6441A4?style=for-the-badge&logo=Hardhat&logoColor=Green)](https://chakra-ui.com/)
-
 
 ## THANK YOU!
