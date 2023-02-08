@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "app-install": "cd ssac-app && npm install",
+    "install-app": "cd ssac-app && npm install",
+    "build-app": "cd ssac-app && npm run build",
     "app": "cd ssac-app && npm run dev"
   },
   "author": "Opeyemi Oginni",

@@ -15,13 +15,14 @@ npm install
 Install the dependecies for the react-app
 
 ```bash
-npm run app-install
+npm run install-app
 
 ```
 
 ## To run on your localhost
 
 ```bash
+npm run build-app
 npm run app
 
 ```
