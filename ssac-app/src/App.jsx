@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Grid,
+  SimpleGrid,
   Heading,
   Text,
   Link,
@@ -401,7 +402,11 @@ const App = () => {
                   <Heading textAlign={"center"} margin="12">
                     Entries for "{selectedContest.contestName}"
                   </Heading>
-                  <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                  <SimpleGrid
+                    columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+                    // templateColumns="repeat(3, 1fr)"
+                    gap={6}
+                  >
                     {entries.map((entry) => (
                       <Box
                         key={BigNumber.from(entry.entryId).toNumber()}
@@ -411,9 +416,17 @@ const App = () => {
                         borderColor={"black"}
                         borderRadius="lg"
                         textAlign={"center"}
+                        maxWidth={"350px"}
                       >
                         <Text as="b" margin="4">
                           {entry.entryTitle}
+                        </Text>
+                        <Text margin="4">
+                          Creator Address:{" "}
+                          {`${entry.entrantAddress.slice(
+                            0,
+                            4
+                          )}...${entry.entrantAddress.slice(-4)}`}
                         </Text>
                         <Text margin="4">
                           NFT Address:{" "}
@@ -452,7 +465,7 @@ const App = () => {
                         )}
                       </Box>
                     ))}
-                  </Grid>
+                  </SimpleGrid>
                   <Button
                     leftIcon={<ArrowBackIcon />}
                     onClick={() => setSelectedContest(null)}
