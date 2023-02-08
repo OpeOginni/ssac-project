@@ -21,6 +21,15 @@ npm run install-app
 
 ## To run on your localhost
 
+Compile the Smart Contract
+
+```bash
+npx hardhat compile
+
+```
+
+Then Run the React App
+
 ```bash
 npm run build-app
 npm run app
