@@ -23,8 +23,8 @@ async function main(contestTitle, registrationFee, tokenReward) {
 }
 
 const regFee = ethers.utils.parseUnits("0.01", "ether");
-const _tokenReward = ethers.utils.parseUnits("25", "ether");
+const _tokenReward = ethers.utils.parseUnits("15", "ether");
 
-main("The Best Contest", regFee, _tokenReward);
+main("Alchemy University Test Contest", regFee, _tokenReward);
 
 // Script: npx hardhat run scripts/createContest.js

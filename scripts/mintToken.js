@@ -10,7 +10,7 @@ const wallet = new ethers.Wallet(
 );
 const deployedProxyAddress = "0x44a31563F1Eb2389f2d59C6CFE23FF0344a6B519";
 
-const addressToMintTo = "0x798dAf26493A3bc4bD3ca862E4a65b2f63062D6f";
+const addressToMintTo = "0x8dA290d1A07859193e69383EDFAe81DD38Ee753f";
 
 const mintAmount = ethers.utils.parseUnits("1", "ether");
 
@@ -27,3 +27,5 @@ async function main(_wallet) {
 }
 
 main(wallet);
+
+// npx hardhat run scripts/mintToken.js --network goerli

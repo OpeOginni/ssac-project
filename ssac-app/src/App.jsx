@@ -361,10 +361,17 @@ const App = () => {
                           {entry.entryTitle}
                         </Text>
                         <Text margin="4">
+                          Creator Address:{" "}
+                          {`${entry.entrantAddress.slice(
+                            0,
+                            5
+                          )}...${entry.entrantAddress.slice(-4)}`}
+                        </Text>
+                        <Text margin="4">
                           NFT Address:{" "}
                           {`${entry.NFT_Address.slice(
                             0,
-                            5
+                            4
                           )}...${entry.NFT_Address.slice(-4)}`}
                         </Text>
                         <Text margin="4">
