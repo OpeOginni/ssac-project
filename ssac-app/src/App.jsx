@@ -34,8 +34,6 @@ import { voteEntry } from "../frontend-functions/voteEntry";
 import { userHasVoted } from "../frontend-functions/hasVoted";
 import { userTokenBalance } from "../frontend-functions/userTokenBalance";
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-
 const App = () => {
   const [selectedContest, setSelectedContest] = useState(null);
   const [entries, setEntries] = useState([]);
@@ -46,6 +44,20 @@ const App = () => {
   const [account, setAccount] = useState();
   const [signer, setSigner] = useState();
   const toast = useToast();
+
+  if (!window.ethereum) {
+    return (
+      <>
+        <Center>
+          <Heading>WEB3 Wallet needed </Heading>
+        </Center>
+        <Center>
+          <Text>Please Install Metamask</Text>
+        </Center>
+      </>
+    );
+  }
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
 
   const getContestDetails = async (contestId) => {
     return contests.find(
