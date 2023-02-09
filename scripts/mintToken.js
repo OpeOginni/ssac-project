@@ -10,7 +10,7 @@ const wallet = new ethers.Wallet(
 );
 const deployedProxyAddress = "0x44a31563F1Eb2389f2d59C6CFE23FF0344a6B519";
 
-const addressToMintTo = "0x8dA290d1A07859193e69383EDFAe81DD38Ee753f";
+const addressToMintTo = "0x5Ed470F309f4560dE6d8ec392c656425404a69e0"; // Change this only
 
 const mintAmount = ethers.utils.parseUnits("1", "ether");
 

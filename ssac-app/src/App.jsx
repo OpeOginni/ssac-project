@@ -386,6 +386,10 @@ const App = () => {
                             4
                           )}...${entry.NFT_Address.slice(-4)}`}
                         </Text>
+                        <Text margin="4" as="em">
+                          (Added For Tests) - No. Of Votes:{" "}
+                          {BigNumber.from(entry.noOfVotes).toNumber()}
+                        </Text>
                         <Text margin="4">
                           <Link
                             href={`https://testnets.opensea.io/assets/goerli/${entry.NFT_Address}/0`}
@@ -457,6 +461,10 @@ const App = () => {
                             0,
                             3
                           )}...${entry.NFT_Address.slice(-4)}`}
+                        </Text>
+                        <Text margin="4" as="em">
+                          (Added For Tests) - No. Of Votes:{" "}
+                          {BigNumber.from(entry.noOfVotes).toNumber()}
                         </Text>
                         <Text margin="4">
                           <Link
