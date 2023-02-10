@@ -10,6 +10,7 @@ export const enterContest = async (
   contestId,
   entryTitle,
   NFTAddress,
+  NFT_Id,
   regFee,
   signer
 ) => {
@@ -23,7 +24,7 @@ export const enterContest = async (
 
   await proxyContract
     .connect(signer)
-    .createEntry(contestId, entryTitle, NFTAddress, {
+    .createEntry(contestId, entryTitle, NFTAddress, NFT_Id, {
       value: regFeeInETH,
     });
 

@@ -178,6 +178,7 @@ const App = () => {
     const entryName = document.getElementById("entryName").value;
     const regFee = document.getElementById("regFee").value;
     const NFT_Address = document.getElementById("NFT_Address").value;
+    const NFT_Id = document.getElementById("NFT_Id").value;
 
     if (regFee < ethers.utils.formatEther(selectedContest.registrationFee)) {
       toast({
@@ -203,6 +204,7 @@ const App = () => {
           BigNumber.from(selectedContest.contestId).toNumber(),
           entryName,
           NFT_Address,
+          NFT_Id,
           regFee,
           signer
         );
@@ -328,6 +330,8 @@ const App = () => {
                       placeholder="0x12...34abcd"
                       margin={"1"}
                     />
+                    <FormLabel>NFT Id</FormLabel>
+                    <Input id="NFT_Id" placeholder="0" margin={"1"} />
                   </FormControl>
                   <ButtonGroup mt={4}>
                     <Button
@@ -392,7 +396,9 @@ const App = () => {
                         </Text>
                         <Text margin="4">
                           <Link
-                            href={`https://testnets.opensea.io/assets/goerli/${entry.NFT_Address}/0`}
+                            href={`https://testnets.opensea.io/assets/goerli/${
+                              entry.NFT_Address
+                            }/${BigNumber.from(entry.NFT_Id).toNumber()}`}
                             isExternal
                           >
                             Check out NFT
@@ -468,7 +474,9 @@ const App = () => {
                         </Text>
                         <Text margin="4">
                           <Link
-                            href={`https://testnets.opensea.io/assets/goerli/${entry.NFT_Address}/0`}
+                            href={`https://testnets.opensea.io/assets/goerli/${
+                              entry.NFT_Address
+                            }/${BigNumber.from(entry.NFT_Id).toNumber()}`}
                             isExternal
                           >
                             Check out NFT

@@ -111,9 +111,11 @@ describe("SsacCommunityV2", function () {
     const testNFTAddess = (await TestNFT.connect(contestant1).deploy()).address;
 
     await proxy.connect(contestant1).addMember(); // Contestant registers as a member
-    await proxy.connect(contestant1).createEntry(0, "My Entry", testNFTAddess, {
-      value: registrationFee,
-    }); // Contestant Enters contest with an Entry ID of 1
+    await proxy
+      .connect(contestant1)
+      .createEntry(0, "My Entry", testNFTAddess, 0, {
+        value: registrationFee,
+      }); // Contestant Enters contest with an Entry ID of 1
 
     await proxy.connect(user1).addMember(); // Voter registers as a member
     await proxy.mintToken(user1.address, mintAmount1); // Voter gers minted token
@@ -135,9 +137,11 @@ describe("SsacCommunityV2", function () {
     const testNFTAddess = (await TestNFT.connect(contestant1).deploy()).address;
 
     await proxy.connect(contestant1).addMember(); // Contestant registers as a member
-    await proxy.connect(contestant1).createEntry(0, "My Entry", testNFTAddess, {
-      value: registrationFee,
-    });
+    await proxy
+      .connect(contestant1)
+      .createEntry(0, "My Entry", testNFTAddess, 0, {
+        value: registrationFee,
+      });
 
     expect(await ethers.provider.getBalance(proxy.address)).to.equal(
       registrationFee
@@ -158,9 +162,11 @@ describe("SsacCommunityV2", function () {
     const testNFTAddess = (await TestNFT.connect(contestant1).deploy()).address;
 
     await proxy.connect(contestant1).addMember(); // Contestant registers as a member
-    await proxy.connect(contestant1).createEntry(0, "My Entry", testNFTAddess, {
-      value: registrationFee,
-    }); // Contestant Enters contest with an Entry ID of 1
+    await proxy
+      .connect(contestant1)
+      .createEntry(0, "My Entry", testNFTAddess, 0, {
+        value: registrationFee,
+      }); // Contestant Enters contest with an Entry ID of 1
 
     await proxy.connect(user1).addMember(); // Voter registers as a member
     await proxy.mintToken(user1.address, mintAmount1); // Voter gers minted token
@@ -189,9 +195,11 @@ describe("SsacCommunityV2", function () {
     const testNFTAddess = (await TestNFT.connect(contestant1).deploy()).address;
 
     await proxy.connect(contestant1).addMember(); // Contestant registers as a member
-    await proxy.connect(contestant1).createEntry(0, "My Entry", testNFTAddess, {
-      value: registrationFee,
-    }); // Contestant Enters contest with an Entry ID of 1
+    await proxy
+      .connect(contestant1)
+      .createEntry(0, "My Entry", testNFTAddess, 0, {
+        value: registrationFee,
+      }); // Contestant Enters contest with an Entry ID of 1
 
     // Voter registers as a member
     await proxy.connect(user1).addMember();
@@ -223,7 +231,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -235,7 +243,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 
@@ -267,7 +275,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -279,7 +287,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 
@@ -321,7 +329,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -333,7 +341,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 
@@ -375,7 +383,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -387,7 +395,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 
@@ -435,7 +443,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -447,7 +455,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 
@@ -499,7 +507,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -511,7 +519,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 
@@ -532,7 +540,7 @@ describe("SsacCommunityV2", function () {
     const testNFTAddess3 = (await TestNFT.connect(user1).deploy()).address;
     // Tries to enter contest when it has ended
     expect(
-      proxy.connect(user1).createEntry(0, "My Entry", testNFTAddess3, {
+      proxy.connect(user1).createEntry(0, "My Entry", testNFTAddess3, 0, {
         value: registrationFee,
       })
     ).to.be.reverted;
@@ -564,7 +572,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant1).addMember();
     await proxy
       .connect(contestant1)
-      .createEntry(0, "My Entry", testNFTAddess1, {
+      .createEntry(0, "My Entry", testNFTAddess1, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 1
 
@@ -576,7 +584,7 @@ describe("SsacCommunityV2", function () {
     await proxy.connect(contestant2).addMember();
     await proxy
       .connect(contestant2)
-      .createEntry(0, "My Entry", testNFTAddess2, {
+      .createEntry(0, "My Entry", testNFTAddess2, 0, {
         value: registrationFee,
       }); // Contestant Enters contest (ID 0) with an Entry ID of 2
 

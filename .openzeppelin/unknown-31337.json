@@ -2,7 +2,7 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0x6efd51a27d97cc8fe16548f56ca2097a8db28e7309ac3d3a5b344319bfc354a7"
+    "txHash": "0xdcb2b1f399ddf99cd3f6915d27a1a53ebadbfa946af564e88d6785d1d5dddea3"
   },
   "proxies": [
     {
@@ -22,14 +22,14 @@
     },
     {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0xe3db92ffc1be59bead0854b60f7a6639dbaa1eb185e9f47240ac69e113c3d3b4",
+      "txHash": "0x4784c1e8eb5b8e0ebe56a3ac91810ff7689dcf4af23b13703eb3e9aa94e5f01e",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "bcb98be0df7ce565904efd8861010c647ada6d8001cc5a794a34c93e6aaedb3f": {
+    "4c49dcb8785a574cd2d0f878750ecf425d9034ad44e021d44b0d0b9a29f8472d": {
       "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0x0370691b9796043b88de16e293ffca8cbdd45f3943c3d5b258687ed7a2309afc",
+      "txHash": "0x9aaa38e4ea9cb863bae4570f8b2d07fdba6ff42a7ab1e22385a236cc00a22b51",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -54,7 +54,7 @@
             "label": "ssacToken",
             "offset": 2,
             "slot": "0",
-            "type": "t_contract(SSACTOKEN)2221",
+            "type": "t_contract(SSACTOKEN)2921",
             "contract": "SsacCommunityV2",
             "src": "contracts/SsacCommunityV2.sol:11"
           },
@@ -94,17 +94,17 @@
             "label": "contests",
             "offset": 0,
             "slot": "5",
-            "type": "t_array(t_struct(Contest)1496_storage)dyn_storage",
+            "type": "t_array(t_struct(Contest)2191_storage)dyn_storage",
             "contract": "SsacCommunityV2",
-            "src": "contracts/SsacCommunityV2.sol:36"
+            "src": "contracts/SsacCommunityV2.sol:37"
           },
           {
             "label": "entries",
             "offset": 0,
             "slot": "6",
-            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)2176_storage))",
             "contract": "SsacCommunityV2",
-            "src": "contracts/SsacCommunityV2.sol:38"
+            "src": "contracts/SsacCommunityV2.sol:39"
           },
           {
             "label": "entriesCount",
@@ -112,7 +112,7 @@
             "slot": "7",
             "type": "t_mapping(t_uint256,t_uint256)",
             "contract": "SsacCommunityV2",
-            "src": "contracts/SsacCommunityV2.sol:39"
+            "src": "contracts/SsacCommunityV2.sol:40"
           },
           {
             "label": "contestVoters",
@@ -120,7 +120,7 @@
             "slot": "8",
             "type": "t_mapping(t_uint256,t_array(t_address)dyn_storage)",
             "contract": "SsacCommunityV2",
-            "src": "contracts/SsacCommunityV2.sol:40"
+            "src": "contracts/SsacCommunityV2.sol:41"
           },
           {
             "label": "contestWinner",
@@ -128,7 +128,7 @@
             "slot": "9",
             "type": "t_mapping(t_uint256,t_uint256)",
             "contract": "SsacCommunityV2",
-            "src": "contracts/SsacCommunityV2.sol:41"
+            "src": "contracts/SsacCommunityV2.sol:42"
           }
         ],
         "types": {
@@ -140,7 +140,7 @@
             "label": "address[]",
             "numberOfBytes": "32"
           },
-          "t_array(t_struct(Contest)1496_storage)dyn_storage": {
+          "t_array(t_struct(Contest)2191_storage)dyn_storage": {
             "label": "struct SsacCommunityV2.Contest[]",
             "numberOfBytes": "32"
           },
@@ -148,7 +148,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(SSACTOKEN)2221": {
+          "t_contract(SSACTOKEN)2921": {
             "label": "contract SSACTOKEN",
             "numberOfBytes": "20"
           },
@@ -156,11 +156,11 @@
             "label": "mapping(uint256 => address[])",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)1481_storage))": {
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_struct(Entry)2176_storage))": {
             "label": "mapping(uint256 => mapping(uint256 => struct SsacCommunityV2.Entry))",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(Entry)1481_storage)": {
+          "t_mapping(t_uint256,t_struct(Entry)2176_storage)": {
             "label": "mapping(uint256 => struct SsacCommunityV2.Entry)",
             "numberOfBytes": "32"
           },
@@ -172,7 +172,7 @@
             "label": "string",
             "numberOfBytes": "32"
           },
-          "t_struct(Contest)1496_storage": {
+          "t_struct(Contest)2191_storage": {
             "label": "struct SsacCommunityV2.Contest",
             "members": [
               {
@@ -220,7 +220,7 @@
             ],
             "numberOfBytes": "224"
           },
-          "t_struct(Entry)1481_storage": {
+          "t_struct(Entry)2176_storage": {
             "label": "struct SsacCommunityV2.Entry",
             "members": [
               {
@@ -252,9 +252,15 @@
                 "type": "t_uint256",
                 "offset": 0,
                 "slot": "4"
+              },
+              {
+                "label": "NFT_Id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
               }
             ],
-            "numberOfBytes": "160"
+            "numberOfBytes": "192"
           },
           "t_uint256": {
             "label": "uint256",

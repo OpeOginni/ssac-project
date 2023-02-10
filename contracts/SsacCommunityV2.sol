@@ -21,6 +21,7 @@ contract SsacCommunityV2 is Initializable {
         address entrantAddress;
         address NFT_Address;
         uint256 noOfVotes;
+        uint256 NFT_Id;
     }
 
     struct Contest {
@@ -82,7 +83,8 @@ contract SsacCommunityV2 is Initializable {
     function createEntry(
         uint256 _contestId,
         string calldata _title,
-        address _NFT_Address
+        address _NFT_Address,
+        uint256 _NFT_Id
     ) external payable {
         Contest memory presentContest = getContest(_contestId);
         require(isMember(msg.sender), "Only members can create an Entry");
@@ -105,7 +107,8 @@ contract SsacCommunityV2 is Initializable {
             _title,
             msg.sender,
             _NFT_Address,
-            0
+            0,
+            _NFT_Id
         );
     }
 
