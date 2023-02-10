@@ -21,6 +21,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 
+import { Network, Alchemy } from "alchemy-sdk";
 import { ArrowBackIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import React, { useState, useEffect } from "react";
 import { ethers, BigNumber } from "ethers";
@@ -34,6 +35,12 @@ import { voteEntry } from "../frontend-functions/voteEntry";
 import { userHasVoted } from "../frontend-functions/hasVoted";
 import { userTokenBalance } from "../frontend-functions/userTokenBalance";
 
+const settings = {
+  apiKey: "QqSZFIahqZ-ZKKwyQhjNXg2HCzQfw8-B", // Replace with your Alchemy API Key.
+  network: Network.ETH_GOERLI, // Replace with your network.
+};
+const alchemy = new Alchemy(settings);
+
 const App = () => {
   const [selectedContest, setSelectedContest] = useState(null);
   const [entries, setEntries] = useState([]);
@@ -43,6 +50,10 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [account, setAccount] = useState();
   const [signer, setSigner] = useState();
+  const [isVoting, setIsVoting] = useState(false);
+  const [isEntering, setIsEntering] = useState(false);
+  const [isJoining, setIsJoining] = useState(false);
+
   const toast = useToast();
 
   if (!window.ethereum) {
@@ -70,6 +81,7 @@ const App = () => {
   }
 
   async function vote(_contestId, _entryId, _signer) {
+    setIsVoting(true);
     if (await userHasVoted(_contestId, account)) {
       toast({
         title: "Voting Error",
@@ -90,9 +102,19 @@ const App = () => {
         duration: 9000,
         isClosable: true,
       });
+    } else if (!(await isMember(account))) {
+      toast({
+        title: "Only Members Can Vote",
+        description: "Join the Community as a member to Vote",
+        position: "top",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     } else {
       try {
-        await voteEntry(_contestId, _entryId, _signer);
+        let tx = await voteEntry(_contestId, _entryId, _signer);
+        await alchemy.transact.waitForTransaction(tx.hash).then();
         toast({
           title: "Success",
           description: "Your vote has been added",
@@ -101,6 +123,9 @@ const App = () => {
           duration: 9000,
           isClosable: true,
         });
+        handleContestSelection(
+          BigNumber.from(selectedContest.contestId).toNumber()
+        );
       } catch (err) {
         toast({
           title: "Error",
@@ -112,9 +137,11 @@ const App = () => {
         });
       }
     }
+    setIsVoting(false);
   }
 
   async function becomeCommunityMember(_signer) {
+    setIsJoining(true);
     if (await isMember(account)) {
       toast({
         title: "Error",
@@ -146,6 +173,7 @@ const App = () => {
         });
       }
     }
+    setIsJoining(false);
   }
 
   const handleContestSelection = async (contestId) => {
@@ -179,6 +207,7 @@ const App = () => {
     const regFee = document.getElementById("regFee").value;
     const NFT_Address = document.getElementById("NFT_Address").value;
     const NFT_Id = document.getElementById("NFT_Id").value;
+    setIsEntering(true);
 
     if (regFee < ethers.utils.formatEther(selectedContest.registrationFee)) {
       toast({
@@ -233,6 +262,7 @@ const App = () => {
         });
       }
     }
+    setIsEntering(false);
   };
 
   const handleCreateEntry = async (contestId) => {
@@ -334,14 +364,27 @@ const App = () => {
                     <Input id="NFT_Id" placeholder="0" margin={"1"} />
                   </FormControl>
                   <ButtonGroup mt={4}>
-                    <Button
-                      size="sm"
-                      colorScheme="teal"
-                      type="submit"
-                      onClick={(e) => createNewContestEntry(e)}
-                    >
-                      Submit
-                    </Button>
+                    {isEntering ? (
+                      <Button size="sm" colorScheme="teal">
+                        <Spinner
+                          thickness="4px"
+                          speed="0.65s"
+                          emptyColor="gray.200"
+                          color="blue.500"
+                          size="sm"
+                        ></Spinner>
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        colorScheme="teal"
+                        type="submit"
+                        onClick={(e) => createNewContestEntry(e)}
+                      >
+                        Submit
+                      </Button>
+                    )}
+
                     <Button
                       colorScheme="red"
                       size="sm"
@@ -405,20 +448,32 @@ const App = () => {
                             <ExternalLinkIcon mx="2px" />
                           </Link>
                         </Text>
-                        <Button
-                          colorScheme={"cyan"}
-                          onClick={() =>
-                            vote(
-                              BigNumber.from(
-                                selectedContest.contestId
-                              ).toNumber(),
-                              BigNumber.from(entry.entryId).toNumber(),
-                              signer
-                            )
-                          }
-                        >
-                          Vote
-                        </Button>
+                        {isVoting ? (
+                          <Button colorScheme={"cyan"}>
+                            <Spinner
+                              thickness="4px"
+                              speed="0.65s"
+                              emptyColor="gray.200"
+                              color="blue.500"
+                              size="lg"
+                            ></Spinner>
+                          </Button>
+                        ) : (
+                          <Button
+                            colorScheme={"cyan"}
+                            onClick={() =>
+                              vote(
+                                BigNumber.from(
+                                  selectedContest.contestId
+                                ).toNumber(),
+                                BigNumber.from(entry.entryId).toNumber(),
+                                signer
+                              )
+                            }
+                          >
+                            Vote
+                          </Button>
+                        )}
                       </Box>
                     ))}
                   </SimpleGrid>
@@ -520,9 +575,21 @@ const App = () => {
                   <Text as="b">Become a Member</Text>
                 </Center>
                 <Center margin="3">
-                  <Button onClick={() => becomeCommunityMember(signer)}>
-                    Join the SSAC Community
-                  </Button>
+                  {isJoining ? (
+                    <Button>
+                      <Spinner
+                        thickness="4px"
+                        speed="0.65s"
+                        emptyColor="gray.200"
+                        color="blue.500"
+                        size="lg"
+                      ></Spinner>
+                    </Button>
+                  ) : (
+                    <Button onClick={() => becomeCommunityMember(signer)}>
+                      Join the SSAC Community
+                    </Button>
+                  )}
                 </Center>
 
                 <Heading textAlign={"center"} margin="12">
