@@ -398,7 +398,7 @@ const App = () => {
                           <Link
                             href={`https://testnets.opensea.io/assets/goerli/${
                               entry.NFT_Address
-                            }/${BigNumber.from(entry.NFT_Id).toNumber()}`}
+                            }/${BigNumber.from(entry.NFT_Id).toString()}`}
                             isExternal
                           >
                             Check out NFT
@@ -476,7 +476,7 @@ const App = () => {
                           <Link
                             href={`https://testnets.opensea.io/assets/goerli/${
                               entry.NFT_Address
-                            }/${BigNumber.from(entry.NFT_Id).toNumber()}`}
+                            }/${BigNumber.from(entry.NFT_Id).toString()}`}
                             isExternal
                           >
                             Check out NFT
