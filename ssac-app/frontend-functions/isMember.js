@@ -6,7 +6,7 @@ const alchemyProvider = new ethers.providers.JsonRpcProvider(
 );
 const deployedProxyAddress = "0x44a31563F1Eb2389f2d59C6CFE23FF0344a6B519";
 
-export const isMember = async (userAddress) => {
+export const isMemberCheck = async (userAddress) => {
   const proxyContract = new ethers.Contract(
     deployedProxyAddress,
     SsacCommunityV2.abi,

@@ -29,7 +29,7 @@ import { getContests } from "../frontend-functions/getContests";
 import { getEntries } from "../frontend-functions/getEntries";
 import { getWinner } from "../frontend-functions/getContestWinner";
 import { enterContest } from "../frontend-functions/enterContest";
-import { isMember } from "../frontend-functions/isMember";
+import { isMemberCheck } from "../frontend-functions/isMember";
 import { becomeMember } from "../frontend-functions/becomeMember";
 import { voteEntry } from "../frontend-functions/voteEntry";
 import { userHasVoted } from "../frontend-functions/hasVoted";
@@ -53,6 +53,7 @@ const App = () => {
   const [isVoting, setIsVoting] = useState(false);
   const [isEntering, setIsEntering] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
+  const [isMember, setIsMember] = useState(false);
 
   const toast = useToast();
 
@@ -75,10 +76,6 @@ const App = () => {
       (contest) => contest.contestId.toNumber() === contestId
     );
   };
-
-  async function checkIsMember() {
-    return await isMember(account);
-  }
 
   async function vote(_contestId, _entryId, _signer) {
     setIsVoting(true);
@@ -305,6 +302,7 @@ const App = () => {
         });
       }
     };
+
     async function getAccounts() {
       const accounts = await provider.send("eth_requestAccounts", []);
 
@@ -312,7 +310,12 @@ const App = () => {
       setSigner(provider.getSigner());
     }
 
+    async function checkIsMember() {
+      setIsMember(await isMemberCheck(account));
+    }
+
     getAccounts();
+    checkIsMember();
     fetchContests();
   }, [toast, account]);
 
@@ -571,26 +574,36 @@ const App = () => {
               )
             ) : (
               <Box>
-                <Center>
-                  <Text as="b">Become a Member</Text>
-                </Center>
-                <Center margin="3">
-                  {isJoining ? (
-                    <Button>
-                      <Spinner
-                        thickness="4px"
-                        speed="0.65s"
-                        emptyColor="gray.200"
-                        color="blue.500"
-                        size="lg"
-                      ></Spinner>
-                    </Button>
-                  ) : (
-                    <Button onClick={() => becomeCommunityMember(signer)}>
-                      Join the SSAC Community
-                    </Button>
-                  )}
-                </Center>
+                {isMember ? (
+                  <Box>
+                    <Center>
+                      <Text as="b">Welcome Back</Text>
+                    </Center>
+                  </Box>
+                ) : (
+                  <Box>
+                    <Center>
+                      <Text as="b">Become a Member</Text>
+                    </Center>
+                    <Center margin="3">
+                      {isJoining ? (
+                        <Button>
+                          <Spinner
+                            thickness="4px"
+                            speed="0.65s"
+                            emptyColor="gray.200"
+                            color="blue.500"
+                            size="lg"
+                          ></Spinner>
+                        </Button>
+                      ) : (
+                        <Button onClick={() => becomeCommunityMember(signer)}>
+                          Join the SSAC Community
+                        </Button>
+                      )}
+                    </Center>
+                  </Box>
+                )}
 
                 <Heading textAlign={"center"} margin="12">
                   Available Contests
